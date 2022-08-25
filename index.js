@@ -155,5 +155,20 @@ horizontals.forEach((row, rowIndex )=> {
 });
 
 verticals.forEach((row, rowIndex) => {
-  row
-})
+  row.forEach((open, columnIndex) => {
+    if(open){
+      return;
+    }
+    const wall = Bodies.rectangle(
+      rowIndex * unitLength + unitLength,
+      rowIndex * unitLength + unitLength / 2,
+      10,
+      unitLength,
+      {
+        isStatic: true
+      }
+    );
+    World.add(world, wall);
+  });
+});
+
